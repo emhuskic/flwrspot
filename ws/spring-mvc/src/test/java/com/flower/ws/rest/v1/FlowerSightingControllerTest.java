@@ -9,7 +9,7 @@ import com.flower.ws.auth.params.FlowerSightingParams;
 import org.easymock.EasyMock;
 import org.easymock.Mock;
 import org.easymock.TestSubject;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -133,6 +133,7 @@ public class FlowerSightingControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(Collections.emptyList(), response.getBody());
         EasyMock.verify(knowledgeBase);
+        EasyMock.resetToDefault(knowledgeBase);
     }
 
     @Test
@@ -158,6 +159,7 @@ public class FlowerSightingControllerTest {
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertNotNull(responseEntity.getBody());
         EasyMock.verify(knowledgeBase, quoteManager, params, flowerSighting);
+        EasyMock.resetToDefault(knowledgeBase, quoteManager, params, flowerSighting);
     }
 
     @Test
@@ -175,6 +177,7 @@ public class FlowerSightingControllerTest {
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         EasyMock.verify(knowledgeBase);
+        EasyMock.resetToDefault(knowledgeBase);
     }
 
     @Test
@@ -192,5 +195,6 @@ public class FlowerSightingControllerTest {
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         EasyMock.verify(knowledgeBase);
+        EasyMock.resetToDefault(knowledgeBase);
     }
 }

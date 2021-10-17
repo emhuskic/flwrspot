@@ -6,7 +6,7 @@ import com.flower.ws.rest.params.PaginationParams;
 import org.easymock.EasyMock;
 import org.easymock.Mock;
 import org.easymock.TestSubject;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -31,5 +31,6 @@ public class FlowerControllerTest {
 
         assertEquals(HttpStatus.OK, flowerList.getStatusCode());
         assertEquals(Collections.emptyList(), flowerList.getBody());
+        EasyMock.resetToDefault(knowledgeBase);
     }
 }

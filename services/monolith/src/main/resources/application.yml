@@ -1,12 +1,6 @@
 spring:
   application:
-    name: ShipEx Logistics Managed Transportation Monolith
-  security:
-    user:
-      name: _basic
-      password: $2a$10$qjeFrgPQ3Cz91kMRDx3AsOyT4S.Hn0mRkNUj.KZFnQ0jbTYMW9FC2
-      roles:
-        - Administrator
+    name: Flwrspot API Service Monolith
   datasource:
     url: jdbc:postgresql://localhost:5432/flwrspot
     username: flwrspot

@@ -14,12 +14,11 @@ import com.flower.knowledge.repository.UserSightingLikeRepository;
 import org.easymock.EasyMock;
 import org.easymock.Mock;
 import org.easymock.TestSubject;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-
 
 import java.util.Collections;
 import java.util.List;
@@ -60,6 +59,7 @@ public class JpaKnowledgeBaseTest {
 
         assertNotNull(knowledgeBase.findUserByUsername("username"));
         EasyMock.verify(userRepository);
+        EasyMock.resetToDefault(userRepository);
     }
 
     @Test
@@ -73,6 +73,7 @@ public class JpaKnowledgeBaseTest {
         assertNotNull(flowers);
         assertEquals(flowers, Collections.emptyList());
         EasyMock.verify(flowerRepository);
+        EasyMock.resetToDefault(flowerRepository);
     }
 
     @Test
@@ -89,6 +90,7 @@ public class JpaKnowledgeBaseTest {
         assertEquals(found.getDescription(), flower.getDescription());
         assertEquals(found.getName(), flower.getName());
         EasyMock.verify(flowerRepository);
+        EasyMock.resetToDefault(flowerRepository);
     }
 
     @Test
@@ -123,6 +125,7 @@ public class JpaKnowledgeBaseTest {
         assertNotNull(knowledgeBase.getSightingsForUser(userId));
         assertNotNull(knowledgeBase.getSightingsForFlower(flowerId));
         EasyMock.verify(flowerSightingRepository);
+        EasyMock.resetToDefault(flowerSightingRepository);
     }
 
 
@@ -157,6 +160,7 @@ public class JpaKnowledgeBaseTest {
 
         assertNotNull(knowledgeBase.findLike(likeId));
         EasyMock.verify(likeRepository);
+        EasyMock.resetToDefault(likeRepository);
     }
 
     @Test
@@ -169,6 +173,7 @@ public class JpaKnowledgeBaseTest {
 
         knowledgeBase.deleteSighting(sightingId);
         EasyMock.verify(flowerSightingRepository);
+        EasyMock.resetToDefault(flowerSightingRepository);
     }
 
     @Test
@@ -181,6 +186,7 @@ public class JpaKnowledgeBaseTest {
 
         knowledgeBase.deleteLike(likeId);
         EasyMock.verify(likeRepository);
+        EasyMock.resetToDefault(likeRepository);
     }
 
     @Test
@@ -193,6 +199,7 @@ public class JpaKnowledgeBaseTest {
 
         knowledgeBase.deleteUserLikes(userId);
         EasyMock.verify(likeRepository);
+        EasyMock.resetToDefault(likeRepository);
     }
 
     @Test
@@ -206,5 +213,6 @@ public class JpaKnowledgeBaseTest {
 
         knowledgeBase.deleteUserLikes(userId, likeId);
         EasyMock.verify(likeRepository);
+        EasyMock.resetToDefault(likeRepository);
     }
 }

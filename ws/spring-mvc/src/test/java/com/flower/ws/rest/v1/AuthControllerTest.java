@@ -9,7 +9,7 @@ import com.flower.ws.rest.response.LoginResponse;
 import org.easymock.EasyMock;
 import org.easymock.Mock;
 import org.easymock.TestSubject;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -48,6 +48,7 @@ public class AuthControllerTest {
         assertEquals(loginResponse.getToken(), response.getBody().getToken());
         assertEquals(loginResponse.getUser().getUsername(), response.getBody().getUser().getUsername());
         EasyMock.verify(authService);
+        EasyMock.resetToDefault(authService);
     }
 
     @Test
@@ -71,6 +72,7 @@ public class AuthControllerTest {
         assertEquals(loginResponse.getToken(), ((LoginResponse)response.getBody()).getToken());
         assertEquals(loginResponse.getUser().getUsername(), ((LoginResponse)response.getBody()).getUser().getUsername());
         EasyMock.verify(authService);
+        EasyMock.resetToDefault(authService);
     }
 
     @Test
@@ -85,5 +87,6 @@ public class AuthControllerTest {
         final ResponseEntity<?> response = authController.login(loginParams);
         assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
         EasyMock.verify(authService);
+        EasyMock.resetToDefault(authService);
     }
 }
