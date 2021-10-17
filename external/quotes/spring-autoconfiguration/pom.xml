@@ -12,6 +12,7 @@
 
     <groupId>com.flower.external.quotes</groupId>
     <artifactId>quotes-spring-autoconfiguration</artifactId>
+    <name>Quotes External Service - Spring Autoconfiguration Module</name>
 
     <dependencies>
 <!--        <dependency>-->

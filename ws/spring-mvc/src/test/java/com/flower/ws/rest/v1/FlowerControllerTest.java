@@ -2,50 +2,34 @@ package com.flower.ws.rest.v1;
 
 import com.flower.knowledge.KnowledgeBase;
 import com.flower.knowledge.model.Flower;
-import com.flower.ws.auth.service.AuthService;
 import com.flower.ws.rest.params.PaginationParams;
-import org.easymock.*;
-import org.json.JSONObject;
+import org.easymock.EasyMock;
+import org.easymock.Mock;
+import org.easymock.TestSubject;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureWebMvc;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
-@ExtendWith(EasyMockExtension.class)
-@AutoConfigureWebMvc
 public class FlowerControllerTest {
-
-    private static final String URL = "http://localhost:8080/api/v1";
-    private TestRestTemplate restTemplate = new TestRestTemplate();
-
     @Mock
-    private KnowledgeBase knowledgeBase;
+    private final KnowledgeBase knowledgeBase = EasyMock.createMock(KnowledgeBase.class);
 
     @TestSubject
-    private FlowerController flowerController = new FlowerController(knowledgeBase);
+    private final FlowerController flowerController = new FlowerController(knowledgeBase);
 
     @Test
     public void listFlowers() {
-        EasyMock.expect((knowledgeBase.getAllFlowers(1, 100))).andReturn(Collections.emptyList());
+        EasyMock.expect(knowledgeBase.getAllFlowers(EasyMock.anyInt(), EasyMock.anyInt())).andReturn(Collections.emptyList());
         EasyMock.replay(knowledgeBase);
-
-        ResponseEntity<List> entity = this.restTemplate
-                .getForEntity(EasyMock.eq(URL + "/flower/list"), List.class);
-
+        final ResponseEntity<List<Flower>> flowerList = flowerController.getFlowers(new PaginationParams(1, 100));
         EasyMock.verify(knowledgeBase);
-        assertEquals(HttpStatus.OK, entity.getStatusCode());
-        assertEquals(Collections.emptyList(), entity.getBody());
 
+        assertEquals(HttpStatus.OK, flowerList.getStatusCode());
+        assertEquals(Collections.emptyList(), flowerList.getBody());
     }
-
 }

@@ -12,6 +12,7 @@
 
     <groupId>com.flower.external</groupId>
     <artifactId>quotes</artifactId>
+    <name>Quotes External Service - Parent Lib Module</name>
     <packaging>pom</packaging>
 
     <modules>

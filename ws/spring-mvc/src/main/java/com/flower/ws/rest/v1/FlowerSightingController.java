@@ -8,9 +8,16 @@ import com.flower.ws.auth.params.FlowerSightingParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.Collections;
@@ -42,7 +49,8 @@ public class FlowerSightingController {
 
     @PostMapping
     public ResponseEntity<FlowerSighting> addSighting(@RequestBody @Valid final FlowerSightingParams params) {
-        final UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
+        SecurityContext context = SecurityContextHolder.getContext();
+        final UserDetails userDetails = (UserDetails) context
                 .getAuthentication()
                 .getPrincipal();
         final String username = userDetails.getUsername();

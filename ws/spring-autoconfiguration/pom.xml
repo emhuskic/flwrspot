@@ -12,6 +12,7 @@
 
     <groupId>com.flower.ws</groupId>
     <artifactId>ws-spring-autoconfiguration</artifactId>
+    <name>Web Services - Spring Autoconfiguration Module</name>
 
     <dependencies>
         <dependency>

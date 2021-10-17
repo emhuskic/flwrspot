@@ -37,7 +37,7 @@ public class AuthService implements UserDetailsService {
 
     public User register(final RegisterParams registerRequest) {
         if (userExistsByUsername(registerRequest.getUsername()) || userExistsByEmail(registerRequest.getEmail())) {
-            throw new EmailInUseException(String.format("Username %s is already in use", registerRequest.getEmail()));
+            throw new EmailInUseException(String.format("%s is already in use.", registerRequest.getEmail()));
         }
 
         String password = passwordEncoder.encode(registerRequest.getPassword());
