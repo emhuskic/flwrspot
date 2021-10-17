@@ -7,7 +7,7 @@ import com.flower.external.quotes.response.QuoteResponse;
 import org.easymock.EasyMock;
 import org.easymock.Mock;
 import org.easymock.TestSubject;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -99,5 +99,6 @@ public class QuoteManagerImplTest {
         assertEquals(quoteResponse.getQuote(),  quoteManager.quoteOfTheDay());
 
         EasyMock.verify(responseSpec, spec, requestHeadersUriSpec);
+        EasyMock.resetToDefault(responseSpec, spec, requestHeadersUriSpec);
     }
 }

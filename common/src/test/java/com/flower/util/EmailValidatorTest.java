@@ -5,7 +5,7 @@ import org.easymock.EasyMock;
 import org.easymock.EasyMockExtension;
 import org.easymock.Mock;
 import org.easymock.TestSubject;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import javax.validation.ConstraintValidatorContext;

@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<modules>
+		<module>common</module>
 		<module>knowledge-base</module>
 		<module>external</module>
 		<module>ws</module>
 		<module>services</module>
-		<module>common</module>
 	</modules>
 
 	<groupId>com.flower</groupId>
@@ -20,6 +20,7 @@
 	<description>APIs for flower sightings</description>
 
 	<properties>
+		<start-class>com.flower.services.monolith.Application</start-class>
 		<encoding>UTF-8</encoding>
 		<java.version>11</java.version>
 		<project.version>0.0.1-SNAPSHOT</project.version>
@@ -53,7 +54,7 @@
 		<slf4j.version>1.7.31</slf4j.version>
 		<spring.security.version>5.5.1</spring.security.version>
 		<spring.version>5.3.8</spring.version>
-
+		<tomcat.version>9.0.48</tomcat.version>
 
 		<!-- Plugin Versions -->
 		<frontend.version>1.12.0</frontend.version>
@@ -78,9 +79,6 @@
 				<artifactId>api</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-
-
-
 
 			<!-- Knowledge & Dependencies ////////////////////////////////////////////////////////////////////////// -->
 			<dependency>
@@ -243,7 +241,7 @@
 			<dependency>
 				<groupId>org.apache.tomcat.embed</groupId>
 				<artifactId>tomcat-embed-core</artifactId>
-				<version>9.0.48</version>
+				<version>${tomcat.version}</version>
 			</dependency>
 
 			<!-- Shared Dependencies /////////////////////////////////////////////////////////////////////////////// -->
@@ -331,12 +329,24 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-data-jpa</artifactId>
 				<version>${spring.boot.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-logging</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-webflux</artifactId>
 				<version>${spring.boot.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-logging</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 
 			<dependency>
@@ -367,6 +377,12 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-security</artifactId>
 				<version>${spring.boot.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-logging</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 
 			<dependency>
@@ -425,6 +441,12 @@
 
 			<dependency>
 				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-api</artifactId>
+				<version>${junit.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
 				<artifactId>junit-jupiter-engine</artifactId>
 				<version>${junit.version}</version>
 			</dependency>
@@ -433,6 +455,13 @@
 				<groupId>org.junit.jupiter</groupId>
 				<artifactId>junit-jupiter-params</artifactId>
 				<version>${junit.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.testng</groupId>
+				<artifactId>testng</artifactId>
+				<version>RELEASE</version>
 			</dependency>
 
 			<dependency>
@@ -445,12 +474,6 @@
 				<groupId>org.assertj</groupId>
 				<artifactId>assertj-core</artifactId>
 				<version>${assertj.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.junit.jupiter</groupId>
-				<artifactId>junit-jupiter-api</artifactId>
-				<version>${junit.version}</version>
 			</dependency>
 
 			<dependency>
@@ -495,6 +518,10 @@
 				<plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+						<mainClass>com.flower.services.monolith.Application</mainClass>
+						<layout>ZIP</layout>
+					</configuration>
 					<version>${spring.boot.version}</version>
 				</plugin>
 
@@ -509,6 +536,28 @@
 					<artifactId>cxf-codegen-plugin</artifactId>
 					<version>${cxf.version}</version>
 				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven.surefire.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven.resources.version}</version>
+					<configuration>
+						<encoding>${encoding}</encoding>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven.compiler.version}</version>
+				</plugin>
+
 			</plugins>
 		</pluginManagement>
 	</build>

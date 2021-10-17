@@ -7,7 +7,7 @@ import com.flower.knowledge.model.UserSightingLike;
 import org.easymock.EasyMock;
 import org.easymock.Mock;
 import org.easymock.TestSubject;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -135,6 +135,7 @@ public class UserSightingLikeControllerTest {
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertNotNull(responseEntity.getBody());
         EasyMock.verify(knowledgeBase);
+        EasyMock.resetToDefault(knowledgeBase);
     }
 
     @Test
@@ -152,6 +153,7 @@ public class UserSightingLikeControllerTest {
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         EasyMock.verify(knowledgeBase);
+        EasyMock.resetToDefault(knowledgeBase);
     }
 
     @Test
@@ -171,5 +173,6 @@ public class UserSightingLikeControllerTest {
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         EasyMock.verify(knowledgeBase);
+        EasyMock.resetToDefault(knowledgeBase);
     }
 }
