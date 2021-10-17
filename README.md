@@ -20,17 +20,32 @@ java -jar services/monolith/target/monolith-0.0.1-SNAPSHOT.jar  --spring.config.
 Application should be running at this point at *http://localhost:8080*
 
 --- 
-To change database name, username, password url or port, navigate to file:
+Application properties, including database properties(name, username, password, url, port), aswell as authentication properties (jwt secret & expiration), and also quotes api url can be found in file:
 ```
 services/monolith/services/monolith/src/main/resources/application.yaml
 ```
-and change properties:
+Db properties:
 ```
   datasource:
     url: jdbc:postgresql://localhost:<DB_PORT>/flwrspot
     username: <USERNAME>
     password: <PASSWORD>
 ```
+
+Quotes api properties:
+```
+quotes:
+  api-url: https://quotes.rest
+```
+
+Authentication properties:
+```
+app:
+  jwtSecret: testtest
+  jwtExpirationMs: 600000000
+```
+
+
 After changing properties, re-run application.
 
 ### APIs
