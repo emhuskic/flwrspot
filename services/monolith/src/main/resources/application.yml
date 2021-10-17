@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: ShipEx Logistics Managed Transportation Monolith
+  security:
+    user:
+      name: _basic
+      password: $2a$10$qjeFrgPQ3Cz91kMRDx3AsOyT4S.Hn0mRkNUj.KZFnQ0jbTYMW9FC2
+      roles:
+        - Administrator
+  datasource:
+    url: jdbc:postgresql://localhost:5432/flwrspot
+    username: flwrspot
+    password: flwrspot
+    hikari:
+      pool-name: flwrspot-knowledge-base-pool
+  flyway:
+    user: postgres
+    password:
+    placeholders.db.user: ${spring.datasource.username}
+    ignore-future-migrations: false
+    validate-migration-naming: true
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQL10Dialect
+      hibernate.criteria.literal_handling_mode: inline
+      hibernate.show_sql: false
+      hibernate.generate_statistics: false
+app:
+  jwtSecret: testtest
+  jwtExpirationMs: 600000000
+quotes:
+  api-url: https://quotes.rest

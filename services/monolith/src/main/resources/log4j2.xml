@@ -1,0 +1,47 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<Configuration name="flwrspot-logging" status="WARN">-->
+
+<!--    <Properties>-->
+<!--        <Property name="log.directory">./logs</Property>-->
+<!--        <Property name="log.datestamp">yyyy-MM-dd HH:mm:ss.SSS</Property>-->
+<!--        <Property name="app.name">unknown</Property>-->
+<!--        <Property name="log.pattern.console">%d{${log.datestamp}} %highlight{%5p} %style{%t}{magenta} %style{%c{1.}}{cyan} : %m%n%xEx</Property>-->
+<!--        <Property name="log.pattern.file">%d{${log.datestamp}} level=%p, thread="%t", app=${sys:app.name}, class=%c{1.}, %m%n%xEx</Property>-->
+<!--    </Properties>-->
+
+<!--    <Appenders>-->
+<!--        <Console name="Console" target="SYSTEM_OUT" follow="true">-->
+<!--            <PatternLayout pattern="${sys:log.pattern.console}" />-->
+<!--        </Console>-->
+
+<!--        <RollingFile name="RollingFile" fileName="${sys:log.directory}/app.log" filePattern="${sys:log.directory}/app-%d{yyyy-MM-dd}.log.gz">-->
+<!--            <PatternLayout pattern="${sys:log.pattern.file}" />-->
+
+<!--            <Policies>-->
+<!--                <TimeBasedTriggeringPolicy />-->
+<!--            </Policies>-->
+
+<!--            <DefaultRolloverStrategy max="30" />-->
+<!--        </RollingFile>-->
+<!--    </Appenders>-->
+
+<!--    <Loggers>-->
+<!--        <Logger name="org.apache.catalina.startup.DigesterFactory" level="ERROR" />-->
+<!--        <Logger name="org.apache.catalina.util.LifecycleBase" level="ERROR" />-->
+<!--        <Logger name="org.apache.coyote.http11.Http11NioProtocol" level="WARN" />-->
+<!--        <logger name="org.apache.sshd.common.util.SecurityUtils" level="WARN" />-->
+<!--        <Logger name="org.apache.tomcat.util.net.NioSelectorPool" level="WARN" />-->
+<!--        <Logger name="org.eclipse.jetty.util.component.AbstractLifeCycle" level="ERROR" />-->
+<!--        <Logger name="org.hibernate.validator.internal.util.Version" level="WARN" />-->
+<!--        <Logger name="org.springframework.boot.actuate.endpoint.jmx" level="WARN" />-->
+<!--        <Logger name="org.glassfish.jersey.internal.inject.Providers" level="ERROR" />-->
+
+<!--        <Logger name="com.flower" level="INFO" />-->
+
+<!--        <Root level="INFO">-->
+<!--            <AppenderRef ref="Console" />-->
+<!--            <AppenderRef ref="RollingFile" />-->
+<!--        </Root>-->
+<!--    </Loggers>-->
+
+<!--</Configuration>-->
