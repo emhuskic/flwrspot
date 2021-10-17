@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>knowledge-base</artifactId>
-    <name>Flower Knowledge Base Library</name>
+    <name>Knowledge Base - Lib Modules Library</name>
     <packaging>pom</packaging>
 
     <modules>

@@ -11,5 +11,6 @@
 
     <groupId>com.flower.external.quotes</groupId>
     <artifactId>quotes-api</artifactId>
+    <name>Quotes External Service - API Module</name>
 
 </project>
