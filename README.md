@@ -49,9 +49,12 @@ app:
 After changing properties, re-run application.
 
 ### Dockerized application run
+For easier application run, Docker configuration is set in the repository.
 #### Prerequisites
 - Have Docker daemon installed & started
 - Have docker-compose installed
+
+#### Run
 - In root folder of the app, run:
 ``
 ./build_and_run.sh --root_password <PASSWORD>

@@ -8,8 +8,8 @@ spring:
     hikari:
       pool-name: flwrspot-knowledge-base-pool
   flyway:
-    user: ${FLYWAY_USER:root}
-    password: ${FLYWAY_PASS:root}
+    user: ${FLYWAY_USER:postgres}
+    password: ${FLYWAY_PASS:}
     placeholders.db.user: ${spring.datasource.username}
     ignore-future-migrations: false
     validate-migration-naming: true

@@ -67,7 +67,7 @@ public class JpaKnowledgeBase implements KnowledgeBase {
 
     @Override
     public List<Flower> getAllFlowers(final int pageNumber, final int pageSize) {
-        return this.flowerRepository.findAll(PageRequest.of(pageNumber, pageSize))
+        return this.flowerRepository.findAll(PageRequest.of(pageNumber - 1, pageSize))
                 .map(FlowerEntity::toDomainModel)
                 .stream()
                 .collect(Collectors.toUnmodifiableList());
