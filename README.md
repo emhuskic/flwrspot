@@ -48,6 +48,15 @@ app:
 
 After changing properties, re-run application.
 
+### Dockerized application run
+#### Prerequisites
+- Have Docker daemon installed & started
+- Have docker-compose installed
+- In root folder of the app, run:
+``
+./build_and_run.sh --root_password <PASSWORD>
+``
+
 ### APIs
 When the application is running, Swagger API documentation is available at url:
 ```
@@ -138,3 +147,11 @@ They can be found in packages: <br/>
 `jpa` in `knowledge-base` parent package - JpaKnowledgeBaseTest <br/>
 `api` in `ws` parent package - AuthServiceTest <br/>
 `ws-spring-mvc` in `ws` parent package - Controllers tests <br/>
+
+
+### TO-DO LIST 
+What is not implemented, but would be in the future: <br/>
+
+- Add refresh token functionality
+- Add logout functionality
+- Add flower POST api with image upload functionality

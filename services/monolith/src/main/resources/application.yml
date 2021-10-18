@@ -2,14 +2,14 @@ spring:
   application:
     name: Flwrspot API Service Monolith
   datasource:
-    url: jdbc:postgresql://localhost:5432/flwrspot
-    username: flwrspot
-    password: flwrspot
+    url: ${PSQL_URL:jdbc:postgresql://localhost:5432/flwrspot}
+    username: ${PSQL_USER:flwrspot}
+    password: ${PSQL_PASS:flwrspot}
     hikari:
       pool-name: flwrspot-knowledge-base-pool
   flyway:
-    user: postgres
-    password:
+    user: ${FLYWAY_USER:root}
+    password: ${FLYWAY_PASS:root}
     placeholders.db.user: ${spring.datasource.username}
     ignore-future-migrations: false
     validate-migration-naming: true
