@@ -41,7 +41,7 @@ quotes:
 Authentication properties:
 ```
 app:
-  jwtSecret: testtest
+  jwtSecret: flwrspotjwt
   jwtExpirationMs: 600000000
 ```
 
@@ -140,7 +140,7 @@ DELETE `/api/v1/like`
 ----
 
 ### Tests
-Unit test are run by default on `mvn clean install` command. <br/> <br/>
+Unit tests are run by default on `mvn clean install` command. <br/> <br/>
 They can be found in packages: <br/>
 `common` - EmailValidatorTest <br/>
 `core` in `external.quotes` parent package - QuoteManagerTest <br/>
@@ -155,3 +155,4 @@ What is not implemented, but would be in the future: <br/>
 - Add refresh token functionality
 - Add logout functionality
 - Add flower POST api with image upload functionality
+- Add more tests to cover sending API requests & checking if they hit wanted controllers' methods. This would be done in `com.flower.services.monolith` package since that's where the SpringBootApplication is.

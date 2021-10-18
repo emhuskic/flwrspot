@@ -21,7 +21,7 @@ spring:
       hibernate.show_sql: false
       hibernate.generate_statistics: false
 app:
-  jwtSecret: testtest
+  jwtSecret: flwrspotjwt
   jwtExpirationMs: 600000000
 quotes:
   api-url: https://quotes.rest
