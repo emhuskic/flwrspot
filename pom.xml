@@ -54,6 +54,7 @@
 		<slf4j.version>1.7.31</slf4j.version>
 		<spring.security.version>5.5.1</spring.security.version>
 		<spring.version>5.3.8</spring.version>
+		<testng.version>7.4.0</testng.version>
 		<tomcat.version>9.0.48</tomcat.version>
 
 		<!-- Plugin Versions -->
@@ -461,7 +462,7 @@
 			<dependency>
 				<groupId>org.testng</groupId>
 				<artifactId>testng</artifactId>
-				<version>RELEASE</version>
+				<version>${testng.version}</version>
 			</dependency>
 
 			<dependency>
