@@ -17,11 +17,6 @@
     <dependencies>
         <dependency>
             <groupId>com.flower.knowledge</groupId>
-            <artifactId>jpa-entities</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.flower.knowledge</groupId>
             <artifactId>jpa</artifactId>
         </dependency>
 

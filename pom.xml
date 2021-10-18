@@ -90,12 +90,6 @@
 
 			<dependency>
 				<groupId>com.flower.knowledge</groupId>
-				<artifactId>jpa-entities</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>com.flower.knowledge</groupId>
 				<artifactId>jpa</artifactId>
 				<version>${project.version}</version>
 			</dependency>
@@ -164,6 +158,12 @@
 
 
 			<!-- WS & Dependencies ////////////////////////////////////////////////////////////////////////// -->
+			<dependency>
+				<groupId>com.flower.ws</groupId>
+				<artifactId>api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
 			<dependency>
 				<groupId>com.flower.ws</groupId>
 				<artifactId>ws-spring-mvc</artifactId>
